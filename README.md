@@ -1,42 +1,21 @@
-# java-getting-started
+# TwitterBotテンプレート_Java版
 
-[![CircleCI](https://circleci.com/gh/heroku/java-getting-started.svg?style=svg)](https://circleci.com/gh/heroku/java-getting-started)
+##仕様
+###自動ツイート
+お気に入りのRSSをつぶやきます。
 
-A barebones Java app, which can easily be deployed to Heroku.
+###自動フォロー
+自動でフォローします。
+やみくもにフォローするわけでなくロジックにしたがって1日30人ほどにフォローします。
+ITとバナナに興味を持っているユーザーのみフォローします。
 
-This application supports the [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java) article - check it out.
+###自動リツイート
+リツイートも同じ仕様ですね。IT関連のつぶやきをリツイートします。
+こちらは１時間に２回上記の処理を行うようにしています。
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+###自動コメント返し（今は廃止中）
+　自動でコメント返します。このコメント返しは二種類実装しました。設定した文字列をランダムにコメントとして返します。
+AIがコメントを受け取り、理解し、コメントを返します。（ちなみにAIはリクルートさんの「A3RT」を使わせていただきました。）
 
-## Running Locally
-
-Make sure you have Java and Maven installed.  Also, install the [Heroku CLI](https://cli.heroku.com/).
-
-```sh
-$ git clone https://github.com/heroku/java-getting-started.git
-$ cd java-getting-started
-$ mvn install
-$ heroku local:start
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-If you're going to use a database, ensure you have a local `.env` file that reads something like this:
-
-```
-DATABASE_URL=postgres://localhost:5432/java_database_name
-```
-
-## Deploying to Heroku
-
-```sh
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-
-## Documentation
-
-For more information about using Java on Heroku, see these Dev Center articles:
-
-- [Java on Heroku](https://devcenter.heroku.com/categories/java)
+##利用ライブラリ
+・Twitter4J 、cron4j
